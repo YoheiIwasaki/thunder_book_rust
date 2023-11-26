@@ -15,3 +15,7 @@ path = "src/00_MazeState.rs"
 [[bin]]
 name = "01_Greedy"
 path = "src/01_Greedy.rs"
+
+[[bin]]
+name = "04_BeamSearch"
+path = "src/04_BeamSearch.rs"
