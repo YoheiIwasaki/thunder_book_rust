@@ -19,3 +19,7 @@ path = "src/01_Greedy.rs"
 [[bin]]
 name = "04_BeamSearch"
 path = "src/04_BeamSearch.rs"
+
+[[bin]]
+name = "06_ChokudaiSearch"
+path = "src/06_ChokudaiSearch.rs"
