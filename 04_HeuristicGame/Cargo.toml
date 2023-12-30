@@ -15,3 +15,7 @@ path = "src/00_AutoMoveMazeState.rs"
 [[bin]]
 name = "01_HillClimb"
 path = "src/01_HillClimb.rs"
+
+[[bin]]
+name = "02_SimulatedAnnealing"
+path = "src/02_SimulatedAnnealing.rs"
