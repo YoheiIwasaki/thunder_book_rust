@@ -11,3 +11,7 @@ rand = "0.8"
 [[bin]]
 name = "00_AutoMoveMazeState"
 path = "src/00_AutoMoveMazeState.rs"
+
+[[bin]]
+name = "01_HillClimb"
+path = "src/01_HillClimb.rs"
