@@ -11,3 +11,7 @@ rand = "0.8"
 [[bin]]
 name = "00_AlternateMazeState"
 path = "src/00_AlternateMazeState.rs"
+
+[[bin]]
+name = "01_MiniMax"
+path = "src/01_MiniMax.rs"
