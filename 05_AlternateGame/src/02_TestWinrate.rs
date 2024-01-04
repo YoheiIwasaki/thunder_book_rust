@@ -301,14 +301,6 @@ fn testFirstPlayerWinRate(ais: [StringAIPair; 2], game_number: usize) {
 }
 
 fn main() {
-    // let ais = [
-    //     ("miniMaxAction".to_string(), |state: &State| -> usize {
-    //         return miniMaxAction(state, END_TURN);
-    //     }),
-    //     ("randomAction".to_string(), |state: &State| -> usize {
-    //         return randomAction(state);
-    //     }),
-    // ];
     let f0: AIFunction = |state: &State| return miniMaxAction(state, END_TURN);
     let f1: AIFunction = |state: &State| return randomAction(state);
     let ais = [
