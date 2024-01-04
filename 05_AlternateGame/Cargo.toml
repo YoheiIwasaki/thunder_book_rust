@@ -23,3 +23,7 @@ path = "src/02_TestWinrate.rs"
 [[bin]]
 name = "03_AlphaBeta"
 path = "src/03_AlphaBeta.rs"
+
+[[bin]]
+name = "05_IterativeDeepening"
+path = "src/05_IterativeDeepening.rs"
