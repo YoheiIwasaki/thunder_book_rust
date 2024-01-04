@@ -15,3 +15,7 @@ path = "src/00_AlternateMazeState.rs"
 [[bin]]
 name = "01_MiniMax"
 path = "src/01_MiniMax.rs"
+
+[[bin]]
+name = "02_TestWinrate"
+path = "src/02_TestWinrate.rs"
