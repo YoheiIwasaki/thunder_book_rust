@@ -19,3 +19,7 @@ path = "src/01_MiniMax.rs"
 [[bin]]
 name = "02_TestWinrate"
 path = "src/02_TestWinrate.rs"
+
+[[bin]]
+name = "03_AlphaBeta"
+path = "src/03_AlphaBeta.rs"
