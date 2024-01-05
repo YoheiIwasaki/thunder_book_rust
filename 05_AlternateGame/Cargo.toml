@@ -27,3 +27,7 @@ path = "src/03_AlphaBeta.rs"
 [[bin]]
 name = "05_IterativeDeepening"
 path = "src/05_IterativeDeepening.rs"
+
+[[bin]]
+name = "06_PrimitiveMontecarlo"
+path = "src/06_PrimitiveMontecarlo.rs"
