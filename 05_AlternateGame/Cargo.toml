@@ -35,3 +35,7 @@ path = "src/06_PrimitiveMontecarlo.rs"
 [[bin]]
 name = "08_MCTS"
 path = "src/08_MCTS.rs"
+
+[[bin]]
+name = "12_ThunderSearch"
+path = "src/12_ThunderSearch.rs"
