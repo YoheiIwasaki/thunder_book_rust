@@ -25,7 +25,7 @@ const END_TURN: usize = 4;
 type ScoreType = i32;
 const INF: i32 = 100000000;
 
-enum WinningStatus {
+pub enum WinningStatus {
     WIN,
     LOSE,
     DRAW,
@@ -47,7 +47,7 @@ impl Character {
     }
 }
 #[derive(Debug, Default, Clone, Eq, PartialEq)]
-struct AlternateMazeState {
+pub struct AlternateMazeState {
     points_: [[i32; W as usize]; H as usize],
     turn_: usize,
     characters_: Vec<Character>,
@@ -244,44 +244,48 @@ fn testFirstPlayerWinRate(ais: [StringAIPair; 2], game_number: usize) {
         ais[0].0, ais[1].0, first_player_win_rate
     );
 }
-
-fn playout(state: &mut State) -> f64 {
-    match state.getWinningStatus() {
-        WinningStatus::WIN => return 1.0,
-        WinningStatus::LOSE => return 0.0,
-        WinningStatus::DRAW => return 0.5,
-        _ => {
-            state.advance(randomAction(state));
-            return 1.0 - playout(state);
+pub mod montecalro {
+    use crate::randomAction;
+    use crate::State;
+    use crate::WinningStatus;
+    use crate::INF;
+    fn playout(state: &mut State) -> f64 {
+        match state.getWinningStatus() {
+            WinningStatus::WIN => return 1.0,
+            WinningStatus::LOSE => return 0.0,
+            WinningStatus::DRAW => return 0.5,
+            _ => {
+                state.advance(randomAction(state));
+                return 1.0 - playout(state);
+            }
         }
     }
-}
-
-fn primitiveMontecarloAction(state: &State, playout_number: usize) -> usize {
-    let legal_actions = state.legalActions();
-    let mut values = vec![0.0; legal_actions.len()];
-    let mut cnts = vec![0.0; legal_actions.len()];
-    for cnt in 0..playout_number {
-        let index = cnt % legal_actions.len();
-        let mut next_state = state.clone();
-        next_state.advance(legal_actions[index]);
-        values[index] += 1.0 - playout(&mut next_state);
-        cnts[index] += 1.0;
-    }
-    let mut best_action_index = 0;
-    let mut best_score = -INF as f64;
-    for index in 0..legal_actions.len() {
-        let value_mean = values[index] / cnts[index];
-        if value_mean > best_score {
-            best_score = value_mean;
-            best_action_index = index;
+    pub fn primitiveMontecarloAction(state: &State, playout_number: usize) -> usize {
+        let legal_actions = state.legalActions();
+        let mut values = vec![0.0; legal_actions.len()];
+        let mut cnts = vec![0.0; legal_actions.len()];
+        for cnt in 0..playout_number {
+            let index = cnt % legal_actions.len();
+            let mut next_state = state.clone();
+            next_state.advance(legal_actions[index]);
+            values[index] += 1.0 - playout(&mut next_state);
+            cnts[index] += 1.0;
         }
+        let mut best_action_index = 0;
+        let mut best_score = -INF as f64;
+        for index in 0..legal_actions.len() {
+            let value_mean = values[index] / cnts[index];
+            if value_mean > best_score {
+                best_score = value_mean;
+                best_action_index = index;
+            }
+        }
+        legal_actions[best_action_index]
     }
-    legal_actions[best_action_index]
 }
 
 fn main() {
-    let f0: AIFunction = |state: &State| return primitiveMontecarloAction(state, 3000);
+    let f0: AIFunction = |state: &State| return montecalro::primitiveMontecarloAction(state, 3000);
     let f1: AIFunction = |state: &State| return randomAction(state);
     let ais = [
         ("primitiveMontecarloAction 3000".to_string(), f0),
