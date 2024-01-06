@@ -124,6 +124,8 @@ impl WallMazeState {
     }
     pub fn toString(&self) -> String {
         let mut s = String::new();
+        s += format!("turn:\t{}\n", self.turn_).as_str();
+        s += format!("score:\t{}\n", self.game_score_).as_str();
         for h in 0..H {
             for w in 0..W {
                 if self.walls_[h as usize][w as usize] == 1 {
