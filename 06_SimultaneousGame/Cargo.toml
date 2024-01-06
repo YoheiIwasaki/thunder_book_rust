@@ -11,3 +11,7 @@ rand = "0.8"
 [[bin]]
 name = "00_SimultaneousMazeState"
 path = "src/00_SimultaneousMazeState.rs"
+
+[[bin]]
+name = "01_PrimitiveMontecarlo"
+path = "src/01_PrimitiveMontecarlo.rs"
