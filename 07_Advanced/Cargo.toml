@@ -11,3 +11,7 @@ rand = "0.8"
 [[bin]]
 name = "00_WallMazeState"
 path = "src/00_WallMazeState.rs"
+
+[[bin]]
+name = "01_GameScore"
+path = "src/01_GameScore.rs"
