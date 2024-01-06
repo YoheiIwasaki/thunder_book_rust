@@ -15,3 +15,7 @@ path = "src/00_WallMazeState.rs"
 [[bin]]
 name = "01_GameScore"
 path = "src/01_GameScore.rs"
+
+[[bin]]
+name = "02_DistanceScore"
+path = "src/02_DistanceScore.rs"
