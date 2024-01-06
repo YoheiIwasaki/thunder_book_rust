@@ -15,3 +15,11 @@ path = "src/00_SimultaneousMazeState.rs"
 [[bin]]
 name = "01_PrimitiveMontecarlo"
 path = "src/01_PrimitiveMontecarlo.rs"
+
+[[bin]]
+name = "02_MCTSSimulation"
+path = "src/02_MCTSSimulation.rs"
+
+[[bin]]
+name = "03_DUCT"
+path = "src/03_DUCT.rs"
