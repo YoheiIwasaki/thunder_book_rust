@@ -24,3 +24,7 @@ path = "src/02_DistanceScore.rs"
 [[bin]]
 name = "03_ZobristHash"
 path = "src/03_ZobristHash.rs"
+
+[[bin]]
+name = "04_TestSpeed"
+path = "src/04_TestSpeed.rs"
